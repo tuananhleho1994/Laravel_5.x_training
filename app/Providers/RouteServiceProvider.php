@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         //
-
+        $router->pattern('id','[a-zA-Z0-9]+');// Every parametters have the name is 'id' are checked before to action in controller
         parent::boot($router);
     }
 
