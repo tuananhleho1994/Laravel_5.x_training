@@ -98,7 +98,10 @@ Route::group(['namespace' => 'Customer', 'prefix'=>'customer/{id}'], function(){
     });
 });
 
-Route::get('csrf', function(){
-    echo csrf_field();
+Route::get('form/profileGet', function(){
+    return view('form.profile');
 });
+Route::post('form/profilePost', ['middleware' => 'age', function(){
+    echo "This is post";
+}]);
 /*===================================End Route================================================================================*/
