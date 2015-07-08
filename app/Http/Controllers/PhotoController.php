@@ -14,6 +14,10 @@ class PhotoController extends Controller
      *
      * @return Response
      */
+    public function popular(){
+        echo "<h2>This is action Popular. controller Photo. Using RestfulController</h2>";
+    }
+
     public function index()
     {
         echo "<h2>This is action Index. controller Photo. Using RestfulController</h2>";

@@ -123,11 +123,23 @@ Route::get('url/', function(){
 
 
 /*===================================RESTful Resource Controllers==========================================================================*/
+
 Route::resource('photo','PhotoController',['names'=>['create'=>'photo.build']]);// Restful Controller
+
 Route::resource('bboy','BboyController',array('only'=>array('index','show')));// Restful Controller
+
 Route::resource('bgirl','BgirlController',array('except'=>array('index','show')));// Restful Controller
 //Route::resource('photo', 'PhotoController',
 //    ['names' => ['create' => 'photo.build']]);
 
 Route::controller('implicit','ImplicitController');// Implicit Controller
 /*===================================End RESTful Resource Controllers==========================================================================*/
+/*===================================Request==========================================================================*/
+Route::get('request/show',['as'=>'form','uses'=>'RequestController@show']);
+Route::post('request/store','RequestController@store');
+Route::put('request/update/{id}', 'RequestController@update');
+Route::get('request/uri', 'RequestController@uri');
+
+Route::get('request/file','RequestController@getFile');
+Route::post('request/file','RequestController@postFile');
+/*===================================End Request==========================================================================*/
