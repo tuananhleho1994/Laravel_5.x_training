@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class BeforeMiddleware
+class Terminable
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,15 @@ class BeforeMiddleware
     public function handle($request, Closure $next)
     {
         if($request->input('age') == 200){
-            echo "this is middleware: BeforeMiddleware";
+            echo "This is action handle, in middleware: Terminable";
             // return redirect('form/profileGet');
-            return;
+            // return;
+        }else {
+            return $next($request);
         }
-        return $next($request);
+    }
+
+    public function terminate($request, $response){
+        echo "This is action terminate, in middleware: Terminable";
     }
 }

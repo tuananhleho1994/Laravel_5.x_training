@@ -12,11 +12,21 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function showProfile(){
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        $this->middleware('log', ['only' => ['fooAction', 'barAction']]);
+
+        $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
+    }
+    public function showProfile()
+    {
         echo "<h2>Hello guy. This is controller User, action show</h2>";
     }
 
-    public function someParam($name, $age){
+    public function someParam($name, $age)
+    {
         echo "<h2>My name is $name, age is $age</h2>";
         echo "<h2>Hello guy. This is controller User, action someParam</h2>";
     }

@@ -97,11 +97,37 @@ Route::group(['namespace' => 'Customer', 'prefix'=>'customer/{id}'], function(){
         // Controllers Within The "App\Http\Controllers\Admin\User" Namespace
     });
 });
+/*===================================End Route================================================================================*/
 
+
+/*===================================Middleware==========================================================================*/
 Route::get('form/profileGet', function(){
     return view('form.profile');
 });
 Route::post('form/profilePost', ['middleware' => 'age', function(){
-    echo "This is post";
+    echo "<script>alert('This is method post')</script>This is post";
 }]);
-/*===================================End Route================================================================================*/
+/*===================================End Middleware==========================================================================*/
+
+
+/*===================================URL==========================================================================*/
+Route::get('url/', function(){
+    $url_01 = url('value/100');
+    $url_02 = action('Customer\CustomController@index', ['countId'=>100]);
+    $url_03 = route('userParam', array('name'=>'Do Tuan Anh', 'age'=>'21'));
+    echo $url_01."<br/>";
+    echo $url_02."<br/>";
+    echo $url_03."<br/>";
+});
+/*===================================End URL==========================================================================*/
+
+
+/*===================================RESTful Resource Controllers==========================================================================*/
+Route::resource('photo','PhotoController',['names'=>['create'=>'photo.build']]);// Restful Controller
+Route::resource('bboy','BboyController',array('only'=>array('index','show')));// Restful Controller
+Route::resource('bgirl','BgirlController',array('except'=>array('index','show')));// Restful Controller
+//Route::resource('photo', 'PhotoController',
+//    ['names' => ['create' => 'photo.build']]);
+
+Route::controller('implicit','ImplicitController');// Implicit Controller
+/*===================================End RESTful Resource Controllers==========================================================================*/

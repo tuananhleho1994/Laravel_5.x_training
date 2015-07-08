@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class BeforeMiddleware
+class AfterMyFirstMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,8 @@ class BeforeMiddleware
     public function handle($request, Closure $next)
     {
         if($request->input('age') == 200){
-            echo "this is middleware: BeforeMiddleware";
+            echo "this is middleware old";
             // return redirect('form/profileGet');
-            return;
         }
         return $next($request);
     }
