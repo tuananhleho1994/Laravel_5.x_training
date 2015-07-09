@@ -76,9 +76,16 @@ class RequestController extends Controller
     }
     public function postFile(Request $request){
         echo "This is method post. Upload File<br>";
+        $file = $request->file('photo');
+        echo "<pre>";
+        print_r($file);
+        echo "</pre>";
+        echo $file->getClientOriginalName()."<br>";
+        echo $file->getMaxFilesize();
         if ($request->hasFile('photo')) {
-            $request->file('photo')->move('public/picture', 'green.jpg');
+            $request->file('photo')->move('public/picture',$file->getClientOriginalName());
+            echo "Done<br>";
         }
-        echo "Done<br>";
+
     }
 }
