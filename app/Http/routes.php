@@ -143,3 +143,32 @@ Route::get('request/uri', 'RequestController@uri');
 Route::get('request/file','RequestController@getFile');
 Route::post('request/file','RequestController@postFile');
 /*===================================End Request==========================================================================*/
+/*===================================End Response==========================================================================*/
+Route::controller('response','ResponseController');
+Route::get('response/xml', function () {
+    return response("<?xml version='1.0' ?><root><data>Laravel Framework</data></root>", "200")
+        ->header('Content-Type', "text/xml");
+});
+/*===================================End Response==========================================================================*/
+/*===================================View==========================================================================*/
+Route::controller('view','ViewController');
+
+// view()->share('key', 'value'); for all views
+
+//view()->composer(
+//    'profile', 'App\Http\ViewComposers\ProfileComposer'
+//);
+/*===================================End View==========================================================================*/
+/*===================================Blade==========================================================================*/
+Route::controller('blade','BladeController');
+/*===================================End Blade==========================================================================*/
+/*===================================Authentication===================================================================*/
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+/*===================================End Authentication===================================================================*/
