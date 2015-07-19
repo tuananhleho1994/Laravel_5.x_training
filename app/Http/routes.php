@@ -194,6 +194,10 @@ Route::controller('collection','CollectionController'); // The same array but it
 Route::controller('query-builder','QueryBuilderController');
 /*=========================End QueryBuiderController================================================*/
 
+/*=========================EloquentController================================================*/
+Route::controller('eloquent','Eloquent\EloquentController');
+/*=========================End EloquentController================================================*/
+
 /*=========================PaginationController================================================*/
 Route::get('pagination/one','PaginationController@getOne');
 /*=========================End PaginationController================================================*/
