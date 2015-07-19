@@ -172,3 +172,32 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 /*===================================End Authentication===================================================================*/
+Route::get('path', function(){
+    $path = app_path();
+
+    $path = app_path('Http/Controllers/Controller.php');
+
+    $path = base_path();
+
+    $path = base_path('vendor/bin');
+
+    $path = config_path();
+
+    $path = storage_path();
+    return $path;
+});
+/*=========================Collection=======================================================*/
+Route::controller('collection','CollectionController'); // The same array but it have many way to handle.
+/*=========================End Collection===================================================*/
+
+/*=========================QueryBuilderController================================================*/
+Route::controller('query-builder','QueryBuilderController');
+/*=========================End QueryBuiderController================================================*/
+
+/*=========================PaginationController================================================*/
+Route::get('pagination/one','PaginationController@getOne');
+/*=========================End PaginationController================================================*/
+
+/*=========================ServiceController================================================*/
+Route::controller('service','ServiceController');
+/*=========================End ServiceController================================================*/
