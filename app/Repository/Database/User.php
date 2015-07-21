@@ -8,9 +8,9 @@
 
 namespace App\Repository\Database;
 
-use App\Repository\UserRepository;
+use App\Repository\UserInterface;
 
-class User implements UserRepository
+class User implements UserInterface
 {
 
     public function myName()

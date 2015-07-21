@@ -23,10 +23,11 @@ class MyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repository\UserRepository', 'App\Repository\Database\User');
-
-        $this->app->bind('SpeedReport', function () {
-            //
-        });
+        $this->app->bind('App\Repository\UserInterface', 'App\Repository\Database\User');
+//        $this->app->bind('App\Repository\UserRepository', 'App\Repository\Database\User');
+//
+//        $this->app->bind('SpeedReport', function () {
+//            //
+//        });
     }
 }

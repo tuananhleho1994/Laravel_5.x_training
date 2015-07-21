@@ -211,5 +211,6 @@ Route::get('mail/one','MailController@getOne');
 /*=========================End MailController================================================*/
 
 /*=========================ServiceController================================================*/
-Route::controller('service','ServiceController');
+Route::controller('service/service','Service\ServiceController');
+Route::controller('service/basic','Service\BasicController');
 /*=========================End ServiceController================================================*/

@@ -2,12 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: tuananhleho1994
- * Date: 7/15/2015
- * Time: 11:11 PM
+ * Date: 7/21/2015
+ * Time: 2:54 PM
  */
 namespace App\Repository;
 
-interface UserRepository
+interface UserInterface
 {
 
     public function myName();
