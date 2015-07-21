@@ -198,9 +198,17 @@ Route::controller('query-builder','QueryBuilderController');
 Route::controller('eloquent','Eloquent\EloquentController');
 /*=========================End EloquentController================================================*/
 
+/*=========================SerializationController================================================*/
+Route::controller('serial','Eloquent\SerializationController');
+/*=========================End SerializationController================================================*/
+
 /*=========================PaginationController================================================*/
 Route::get('pagination/one','PaginationController@getOne');
 /*=========================End PaginationController================================================*/
+
+/*=========================MailController================================================*/
+Route::get('mail/one','MailController@getOne');
+/*=========================End MailController================================================*/
 
 /*=========================ServiceController================================================*/
 Route::controller('service','ServiceController');

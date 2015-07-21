@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers\Eloquent;
 
+use Carbon\Carbon;
 use DB;
 use App\Models\Product;
 use App\User;
@@ -38,6 +39,10 @@ class EloquentController extends Controller
     public function getThree(){
         $user = Product::find(1);
         $this->getPrint($user);
+    }
+
+    public function getFour(){
+        echo Carbon::now();
     }
 
     public function getCountRecord(){
@@ -111,5 +116,34 @@ class EloquentController extends Controller
 
         return "Done delete";
     }
-    /*============================ CRUD ===============================================================*/
+    /*============================ END CRUD ===============================================================*/
+
+    public function getTrashOne(){
+        $product = Product::find(5);
+        if($product->trashed()){// kiểm tra xem model(record) đã xóa  hay chưa ....
+            echo "Đã  xóa";
+        }else{
+            $product->delete();
+        }
+    }
+
+    public function getTrashTwo(){
+        $product = Product::withTrashed()
+                            ->where('user_id',7)
+                            ->get();
+        foreach($product as $value){
+            echo $value->product_code;
+        }
+        $this->getPrint($product);
+    }
+
+    public function getTrashThree(){
+        $product = Product::onlyTrashed()
+            ->where('user_id',100)
+            ->get();
+        foreach($product as $value){
+            echo $value->product_code;
+        }
+        $this->getPrint($product);
+    }
 }
