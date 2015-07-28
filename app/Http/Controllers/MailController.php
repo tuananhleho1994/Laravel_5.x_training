@@ -10,10 +10,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Mail;
+use Illuminate\Contracts\Mail\Mailer;
 
 class MailController extends Controller
 {
-    public function getOne(){
+    public function getOne(Mailer $mailer){
         echo "Send A Mail";
         $user = array(
             'name' => 'Đỗ Tuấn Anh',
