@@ -17,7 +17,7 @@ class CookieController extends Controller
 {
     public function getCreate()
     {
-        Cookie::queue(Cookie::make('age', 21, 1));
+        Cookie::queue(Cookie::make('age', 21, 3));
     }
 
     public function getShow()
@@ -28,6 +28,11 @@ class CookieController extends Controller
             echo Cookie::get('age');
         }
         echo Cookie::get('name');
+    }
+
+    public function getDelete(){
+        $cookie = Cookie::forget('age');
+        return redirect()->action('CookieController@getShow')->withCookie($cookie);
     }
 }
 
